@@ -1,3 +1,5 @@
-let tooltip = function(selector, text) {
-	
+class Tooltip {
+	constructor(selector, text, options) {
+
+	}
 }

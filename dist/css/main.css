@@ -88,4 +88,8 @@ body {
 	margin-bottom: 0.5em;
 }
 
+.content p em {
+	font-style: italic;
+}
+
 /*# sourceMappingURL=main.css.map */

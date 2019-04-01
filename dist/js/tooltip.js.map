@@ -1,1 +1,1 @@
-{"version":3,"sources":["tooltip.js"],"names":["tooltip","selector","text"],"mappings":";;AAAA,IAAIA,UAAU,SAAVA,OAAU,CAASC,QAAT,EAAmBC,IAAnB,EAAyB,CAEtC,CAFD","file":"tooltip.js","sourcesContent":["let tooltip = function(selector, text) {\n\t\n}"]}
+{"version":3,"sources":["tooltip.js"],"names":["Tooltip","selector","text","options"],"mappings":";;;;IAAMA,O,GACL,iBAAYC,QAAZ,EAAsBC,IAAtB,EAA4BC,OAA5B,EAAqC;AAAA;AAEpC,C","file":"tooltip.js","sourcesContent":["class Tooltip {\n\tconstructor(selector, text, options) {\n\n\t}\n}"]}
