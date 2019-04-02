@@ -12,8 +12,8 @@ class Tooltip {
 			return false;
 		}
 
-		this.$triggerElement.addEventListener('mouseover', this.showTooltip.bind(this))
-		this.$triggerElement.addEventListener('mouseout', this.hideTooltip.bind(this))
+		this.$triggerElement.addEventListener('mouseover', this.showTooltip)
+		this.$triggerElement.addEventListener('mouseout', this.hideTooltip)
 	
 		this.$tooltip = document.createElement('div');
 		this.$tooltip.innerHTML = text;
@@ -27,7 +27,7 @@ class Tooltip {
 		
 	}
 	
-	showTooltip() {
+	showTooltip = () => {
 		console.log('show tooltip')
 		this.$tooltip.style.left = this.$triggerElement.getBoundingClientRect().right + 10 + "px";
 		this.$tooltip.style.top = this.$triggerElement.getBoundingClientRect().top + 50 + "px";
@@ -42,7 +42,7 @@ class Tooltip {
 		}, 1)
 	}
 
-	hideTooltip() {
+	hideTooltip = () => {
 		console.log('hide tooltip')
 		document.body.removeChild(this.$tooltip);
 	}
