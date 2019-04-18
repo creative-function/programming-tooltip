@@ -39,7 +39,7 @@ class Tooltip {
 			$hoverDiv.style.height = "25" + "px";
 			$hoverDiv.style.left = linkPosition.right + "100" + 'px';
 			$hoverDiv.style.top= linkPosition.top + "100" + 'px';
-			$hoverDiv.style.backgroundColor='orange';
+			$hoverDiv.style.backgroundColor='blue';
 			
 
 			console.log("showing tooltip");
