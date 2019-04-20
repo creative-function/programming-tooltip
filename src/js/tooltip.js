@@ -1,4 +1,4 @@
-import { timingSafeEqual } from "crypto";
+// import { timingSafeEqual } from "crypto";
 
  
 console.log("class notes");
@@ -172,7 +172,7 @@ class Tooltip {
 
 	constructor(className, text, overrideOptions, requiredOptions){
 		
-		const defatultOptions={
+		const defaultOptions={
 			backgroundColor: 'yellow',
 			color:'black',
 			position: null
@@ -181,31 +181,40 @@ class Tooltip {
 		const requiredOptions={}
 
 		let $className = document.querySelector(className);
+		
 		//showTooltip = () => {}  
 		createTooltip = () => {
 			
 			let $hoverDiv = document.createElement("div");
 			let $hoverText = document.createTextNode(text);
-			
 			$hoverDiv.appendChild($hoverText);
 			document.body.appendChild($hoverDiv);
-			var linkPosition = $className.getBoundingClientRect();
-			$hoverDiv.style.position = "absolute";
-			$hoverDiv.style.height = "25" + "px";
-			$hoverDiv.style.left = linkPosition.right + "100" + 'px';
-			$hoverDiv.style.top = linkPosition.top + "100" + 'px';
-			$hoverDiv.style.backgroundColor = 'yellow';
-			console.log("showing tooltip");
+			
+			showTooltip = () => {
+
+				var linkPosition = $className.getBoundingClientRect();
+				$hoverDiv.style.position = "absolute";
+				$hoverDiv.style.height = "25" + "px";
+				$hoverDiv.style.left = linkPosition.right + "100" + 'px';
+				$hoverDiv.style.top = linkPosition.top + "100" + 'px';
+				$hoverDiv.style.backgroundColor = 'yellow';
+				console.log("showing tooltip");
+	
+			}
+
+			showTooltip();
 
 		}
-		
+
+		hideTooltip = () => {
+			document.body.removeChild($hoverDiv);
+			console.log("deleted tooltip");
+
+		}
 
 		$className.addEventListener("mouseover", createTooltip);
 	
-		$className.addEventListener("mouseout", function () {
-			document.body.removeChild($hoverDiv);
-			console.log("deleted tooltip");
-		});
+		$className.addEventListener("mouseout", hideTooltip);
 
  }
 
