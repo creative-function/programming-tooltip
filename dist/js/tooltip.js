@@ -17,7 +17,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 	 //on mouseout, remove tooltip 
 	 	// remove the div 
 */
-console.log("connected");
+console.log("HW3 Take 2");
 
 var Tooltip = function Tooltip(className, hoverText) {
   _classCallCheck(this, Tooltip);
