@@ -37,7 +37,7 @@ class Tooltip {
 		let defaultOptions = {
 			color:'black',
 			backgroundColor:'yellow',
-			getBackgroundColor: 'none',
+			override: () => {},
 			tooltipPosition: 'none'
 		}
 
@@ -52,7 +52,7 @@ class Tooltip {
 			$hoverDiv.style.height = "25" + "px";
 			$hoverDiv.style.left =linkPosition.right + "100" + 'px';
 			$hoverDiv.style.top=linkPosition.top + "100" + 'px';
-			$hoverDiv.style.backgroundColor= defaultOptions.backgroundColor;
+			$hoverDiv.style.backgroundColor= 'yellow';
 			
 			console.log("showing tooltip");
 
@@ -62,11 +62,11 @@ class Tooltip {
 			this.options = combinedOptions // .options is a title holder [i.e this.puppy] whenever I refer to this.options [this = this instance aka this Tooltip i.e googleTooolTip], I am talking about the values from combinedOptions
 	
 			console.log('bg before', this.options.backgroundColor) // tell me the value of backgroundColor right now ['yellow']
-			if(this.options.getBackgroundColor){ // if this variable name contains "something".. [function, string, whatever]
-				console.log('getBackgroundcolor', {type: typeof this.options.getBackgroundColor,  // tell us the value of it  and what type of value it is
-													getBG: this.options.getBackgroundColor}) // getBG is a title that can be set to anything // use getBG: tell me the color
-				if (typeof this.options.getBackgroundColor == 'function'){  // if the value type is a function [not a string or intiger, etc]
-					this.options.backgroundColor = this.options.getBackgroundColor() //  THIS IS WHERE THE CALLBACK FUNCTION IS CALLED!  run the callback function [getBackhroundColor()] and assign result as new value of parameter [backgroundColor] 
+			if(this.options.override){ // if this variable name contains "something".. [function, string, whatever]
+				console.log('override', {type: typeof this.options.override,  // tell us the value of it  and what type of value it is
+													getBG: this.options.override}) // getBG is a title that can be set to anything // use getBG: tell me the color
+				if (typeof this.options.override == 'function'){  // if the value type is a function [not a string or intiger, etc]
+					this.options.backgroundColor = this.options.overrideOptions() //  THIS IS WHERE THE CALLBACK FUNCTION IS CALLED!  run the callback function [getBackhroundColor()] and assign result as new value of parameter [backgroundColor] 
 				}
 			}
 	
@@ -77,9 +77,9 @@ class Tooltip {
 			console.log("deleted tooltip");
 		}
 
-		$linkEl.addEventListener("mouseover", showTooltip(){});
+		$linkEl.addEventListener("mouseover", showTooltip());
 
-		$linkEl.addEventListener("mouseout", hideTooltip(){});
+		$linkEl.addEventListener("mouseout", hideTooltip();
 
 
 

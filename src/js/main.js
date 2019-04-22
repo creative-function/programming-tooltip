@@ -4,7 +4,7 @@ new Tooltip('.googlelink', 'Click here Google!')
 
 let twitterOverride = {
     color:'white',
-    backgroundColor:'#00aced',
+    backgroundColor: 'orange',
     getBackgroundColor: 'none',
     tooltipPosition: 'none'
 }

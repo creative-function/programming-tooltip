@@ -3,7 +3,7 @@
 new Tooltip('.googlelink', 'Click here Google!');
 var twitterOverride = {
   color: 'white',
-  backgroundColor: '#00aced',
+  backgroundColor: 'orange',
   getBackgroundColor: 'none',
   tooltipPosition: 'none'
 };
