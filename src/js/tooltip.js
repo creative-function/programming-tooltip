@@ -215,7 +215,7 @@ class Tooltip {
 		$className.addEventListener("mouseover", createTooltip);
 	
 		$className.addEventListener("mouseout", hideTooltip);
-
- }
+	}
+}
 
 
