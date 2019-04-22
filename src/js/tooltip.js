@@ -37,7 +37,7 @@ class Tooltip {
 		let defaultOptions = {
 			color:'black',
 			backgroundColor:'yellow',
-			override: () => {},
+			override: overrideOptions,
 			tooltipPosition: 'none'
 		}
 
@@ -52,9 +52,9 @@ class Tooltip {
 			$hoverDiv.style.height = "25" + "px";
 			$hoverDiv.style.left =linkPosition.right + "100" + 'px';
 			$hoverDiv.style.top=linkPosition.top + "100" + 'px';
-			$hoverDiv.style.backgroundColor= 'yellow';
+			$hoverDiv.style.backgroundColor= defaultOptions.backgroundColor;
 			
-			console.log("showing tooltip");
+			console.log("showing " + className + " tooltip");
 
 			console.log('options before', {defaultOptions, overrideOptions}) // tell me the default options and override options values
 			const combinedOptions =  Object.assign({}, defaultOptions, overrideOptions); // make a new object with the following paramaters in this order: curly brakets, then put values of defaultoptions inside, then add/overrite to default with overridetOptions
@@ -64,7 +64,7 @@ class Tooltip {
 			console.log('bg before', this.options.backgroundColor) // tell me the value of backgroundColor right now ['yellow']
 			if(this.options.override){ // if this variable name contains "something".. [function, string, whatever]
 				console.log('override', {type: typeof this.options.override,  // tell us the value of it  and what type of value it is
-													getBG: this.options.override}) // getBG is a title that can be set to anything // use getBG: tell me the color
+													getBG: this.options.backgroundColor}) // getBG is a title that can be set to anything // use getBG: tell me the color
 				if (typeof this.options.override == 'function'){  // if the value type is a function [not a string or intiger, etc]
 					this.options.backgroundColor = this.options.overrideOptions() //  THIS IS WHERE THE CALLBACK FUNCTION IS CALLED!  run the callback function [getBackhroundColor()] and assign result as new value of parameter [backgroundColor] 
 				}
@@ -79,7 +79,7 @@ class Tooltip {
 
 		$linkEl.addEventListener("mouseover", showTooltip());
 
-		$linkEl.addEventListener("mouseout", hideTooltip();
+		// $linkEl.addEventListener("mouseout", hideTooltip());
 
 
 
