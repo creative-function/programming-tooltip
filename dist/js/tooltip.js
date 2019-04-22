@@ -31,7 +31,7 @@ var Tooltip = function Tooltip(className, hoverText) {
     var linkPosition = $linkEl.getBoundingClientRect();
     $hoverDiv.style.position = "absolute";
     $hoverDiv.style.height = "25" + "px";
-    $hoverDiv.style.right = linkPosition.right + "100" + 'px';
+    $hoverDiv.style.left = linkPosition.right + "100" + 'px';
     $hoverDiv.style.top = linkPosition.top + "100" + 'px';
     $hoverDiv.style.backgroundColor = 'orange';
     console.log("showing tooltip");
