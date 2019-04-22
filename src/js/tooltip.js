@@ -12,14 +12,21 @@
 		 // make it slide up 
 
 	 //on mouseout, remove tooltip 
-	 	// remove the div 
+		 // remove the div
+		 
+		 //FUNCTIONS I NEED 
+	//functionNamehere = () => {}  // this is how you write a fat arrow function 
+	//createTooltip = (selector, text) => {} // parameters in () and formula in {}
+	//showTooltip = () => {}  
+	//hideTooltip
+	//setupListeners
 */
  
-console.log("connected");
+console.log("HW3 Take 2");
 
 
 class Tooltip {
-	constructor(className, hoverText,) {
+	constructor(className, hoverText, overrideOptions) {
 
 		let $linkEl = document.querySelector(className);
 
@@ -27,31 +34,54 @@ class Tooltip {
 
 		let $popupText = document.createTextNode(hoverText);
 
-
-		$linkEl.addEventListener("mouseover", function(){
+		let linkPosition = $linkEl.getBoundingClientRect(); 
+		
+		
+		let defaultOptions = {
+			color:'black',
+			backgroundColor:'yellow',
+			// tooltipPosition: {
+			// 	 topPosition= linkPosition.top + "100" + 'px';
+			// 	bottomPosition = linkPosition.bottom + "100" + "px";
+			// }
+		}
+		
+		
+		let showTooltip = () => {
+			
+			
+			console.log("showing " + className + " tooltip");
+			
+			console.log('options before', {defaultOptions, overrideOptions}) // tell me the default options and override options values
+			const combinedOptions =  Object.assign({}, defaultOptions, overrideOptions); // make a new object with the following paramaters in this order: curly brakets, then put values of defaultoptions inside, then add/overrite to default with overridetOptions
+			console.log('options after', {combinedOptions, defaultOptions, overrideOptions}) // tell me the value of the new object and the old ones too 
+			this.options = combinedOptions // .options is a title holder [i.e this.puppy] whenever I refer to this.options [this = this instance aka this Tooltip i.e googleTooolTip], I am talking about the values from combinedOptions
+			
+			
+			//req
 			$hoverDiv.appendChild($popupText);
-
 			document.body.appendChild($hoverDiv);
-
-			let linkPosition = $linkEl.getBoundingClientRect();
-
 			$hoverDiv.style.position = "absolute";
 			$hoverDiv.style.height = "25" + "px";
-			$hoverDiv.style.right =linkPosition.right + "100" + 'px';
-			$hoverDiv.style.top=linkPosition.top + "100" + 'px';
-			$hoverDiv.style.backgroundColor='orange';
+			$hoverDiv.style.left =linkPosition.right + "100" + 'px';
 			
+			//optional
+			
+			
+			$hoverDiv.style.top= linkPosition.top + "100" + 'px';
+			$hoverDiv.style.backgroundColor= this.options.backgroundColor; //setting
+	
+		}
 
-			console.log("showing tooltip");
-
-		})
-
-		$linkEl.addEventListener("mouseout", function(){
+		let hideTooltip = () => {
 			document.body.removeChild($hoverDiv);
-
 			console.log("deleted tooltip");
+		}
 
-		})
+		$linkEl.addEventListener("mouseover", showTooltip);
+
+		$linkEl.addEventListener("mouseout", hideTooltip);
+
 
 
 	}
