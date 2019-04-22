@@ -15,16 +15,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 		 // make it slide up 
 
 	 //on mouseout, remove tooltip 
-	 	// remove the div 
+		 // remove the div
+		 
+		 //FUNCTIONS I NEED 
+	//functionNamehere = () => {}  // this is how you write a fat arrow function 
+	//createTooltip = (selector, text) => {} // parameters in () and formula in {}
+	//showTooltip = () => {}  
+	//hideTooltip
+	//setupListeners
 */
 console.log("HW3 Take 2");
 
-var Tooltip = function Tooltip(className, hoverText) {
+var Tooltip = function Tooltip(className, hoverText, overrideOptions, requiredOptions) {
   _classCallCheck(this, Tooltip);
 
   var $linkEl = document.querySelector(className);
   var $hoverDiv = document.createElement("div");
   var $popupText = document.createTextNode(hoverText);
+  var defaultOptions = {
+    color: 'black',
+    backgroundColor: 'yellow',
+    tooltipPosition: null
+  };
   $linkEl.addEventListener("mouseover", function () {
     $hoverDiv.appendChild($popupText);
     document.body.appendChild($hoverDiv);

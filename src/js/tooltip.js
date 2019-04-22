@@ -12,20 +12,35 @@
 		 // make it slide up 
 
 	 //on mouseout, remove tooltip 
-	 	// remove the div 
+		 // remove the div
+		 
+		 //FUNCTIONS I NEED 
+	//functionNamehere = () => {}  // this is how you write a fat arrow function 
+	//createTooltip = (selector, text) => {} // parameters in () and formula in {}
+	//showTooltip = () => {}  
+	//hideTooltip
+	//setupListeners
 */
  
 console.log("HW3 Take 2");
 
 
 class Tooltip {
-	constructor(className, hoverText,) {
+	constructor(className, hoverText, overrideOptions, requiredOptions) {
 
 		let $linkEl = document.querySelector(className);
 
 		let $hoverDiv = document.createElement("div");
 
 		let $popupText = document.createTextNode(hoverText);
+
+		let defaultOptions = {
+			color:'black',
+			backgroundColor:'yellow',
+			tooltipPosition: null,
+		}
+
+
 
 
 		$linkEl.addEventListener("mouseover", function(){
