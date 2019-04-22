@@ -1,9 +1,16 @@
 new Tooltip('.googlelink', 'Click here Google!')
 
-// new Tooltip('.googlelink', 'Click here Google!', {
-// 	background: 'red',
-// 	animation: 'fade'
-// })
+
+
+let twitterOverride = {
+    color:'white',
+    backgroundColor:'#00aced',
+    getBackgroundColor: 'none',
+    tooltipPosition: 'none'
+}
+
+
+new Tooltip('.twitterlink', 'Click here Twitter!', twitterOverride)
 
 
 
