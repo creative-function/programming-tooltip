@@ -3,9 +3,9 @@ new Tooltip('.googlelink', 'Click here Google!')
 
 
 let twitterOverride = {
-    color:'white',
-    backgroundColor: 'orange',
-    getBackgroundColor: 'none',
+    color:'purple',
+    // backgroundColor: 'orange',
+    // getBackgroundColor: 'none',
    
 }
 
@@ -19,5 +19,4 @@ let redditOverride = {
     backgroundColor: 'pink',
    
 }
-
 new Tooltip('.redditlink', 'Click here Reddit', redditOverride)

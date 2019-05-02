@@ -2,9 +2,9 @@
 
 new Tooltip('.googlelink', 'Click here Google!');
 var twitterOverride = {
-  color: 'white',
-  backgroundColor: 'orange',
-  getBackgroundColor: 'none'
+  color: 'purple' // backgroundColor: 'orange',
+  // getBackgroundColor: 'none',
+
 };
 new Tooltip('.twitterlink', 'Click here Twitter!', twitterOverride);
 var redditOverride = {
